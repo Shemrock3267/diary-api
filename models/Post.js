@@ -7,16 +7,26 @@ const PostSchema = new Schema(
       required: true,
       default: Date.now,
     },
+
     title: {
       type: String,
       required: true,
     },
+
     content: {
       type: String,
       required: true,
     },
+
+    user_id: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+    },
   },
-  { timestamps: true, collection: 'posts' }
+  {
+    collection: 'posts',
+    timestamps: true,
+  }
 );
 
 export default model('Post', PostSchema);
